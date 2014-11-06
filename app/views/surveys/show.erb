@@ -1,22 +1,58 @@
-<h1> Here is your Survey Title </h1>
-<h1><%= @survey.title %></h1>
+ <!-- Navigation Bar
+    ================================================== -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"> Spirit Survey</a>
+        </div>
+        <!--/.navbar-collapse -->
+        <div id="navbar" class="navbar-collapse collapse">
+          <!--/.navbar-collapse -->
+          <form class="navbar-form navbar-right" role="form" action="/login" method="post">
+            <div class="form-group">
+              <input type="text" placeholder="username" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="password" name="password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div>
+      </div>
+    </nav>
 
-<form action="/surveys/<%= @survey.id %>" method="post">
-  <input type="hidden" name="_method" value="delete"></input>
-  <button type="submit"> Delete</button>
-</form>
 
-<ul>
-  <% @survey.questions.each do |quest|%>
-  <li><a href=<%="/surveys/#{@survey.id}/questions/#{quest.id}"%>><%= "#{quest.content}"%></a></li>
-  <%end %>
-</ul>
+ <!-- Content Section
+    ================================================== -->
+<div class="jumbotron">
+  <h1> Here is your Survey Title: </h1>
+  <h1><%= @survey.title %></h1>
+
+  <form action="/surveys/<%= @survey.id %>" method="post">
+    <input type="hidden" name="_method" value="delete"></input>
+    <button type="submit"> Delete Your Survey</button>
+  </form>
+
+  <h2>Below are the questions on your Survey:</h2>
+  <ul>
+    <% @survey.questions.each do |quest|%>
+    <li><a href=<%="/surveys/#{@survey.id}/questions/#{quest.id}"%>><%= "#{quest.content}"%></a></li>
+    <%end %>
+  </ul>
 <br>
 <br>
-<br>
+<h2> Why Don't you add a new question?</h2>
 <form action=<%="/surveys/#{@survey.id}/questions/new"%> method="post">
   <input type="text" name="content" placeholder="new question"></input>
   <input type="submit" value="submit"/>
 </form>
 
-<a href="/surveys/<%= @survey.id %>/edit"> Edit your Title </a>
+<a href="/surveys/<%= @survey.id %>/edit"> Feel free to Edit your Survey </a>
+
+</div>
