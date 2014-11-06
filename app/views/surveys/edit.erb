@@ -21,12 +21,17 @@
     </nav>
 
 
+<!-- Content Section
+    ================================================== -->
 
 
-<h1> Edit Your Title </h1>
+<div class="jumbotron">
 
-<form action="/surveys/<%=@survey.id%>" method="post">
-  <input type="hidden" name="_method" value="put"></input>
-  <input type="text" name="survey[title]" value="<%= @survey.title %>"></input>
-  <button type="submit">Submit</button>
-</form>
+  <h1> Edit Your Title </h1>
+
+  <form action="/surveys/<%=@survey.id%>" method="post">
+    <input type="hidden" name="_method" value="put"></input>
+    <input type="text" name="survey[title]" value="<%= @survey.title %>"></input>
+    <button type="submit">Submit</button>
+  </form>
+</div>
