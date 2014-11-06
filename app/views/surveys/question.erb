@@ -1,16 +1,52 @@
-<h3><%= "#{@survey.title}" %></h3>
-<h4>Question: <%= "#{@question.content}"%></h4>
+<!-- Navigation Bar
+    ================================================== -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"> Spirit Survey</a>
+        </div>
+        <!--/.navbar-collapse -->
+        <div id="navbar" class="navbar-collapse collapse">
+          <!--/.navbar-collapse -->
+          <form class="navbar-form navbar-right" role="form" action="/login" method="post">
+            <div class="form-group">
+              <input type="text" placeholder="username" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="password" name="password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div>
+      </div>
+    </nav>
 
-<form action=<%="/surveys/#{@survey.id}/questions/#{@question.id}"%> method="post">
-  <input type="hidden" name="_method" value="delete"></input>
-  <button type="submit"> Delete</button>
-</form>
+<!-- Content Section
+    ================================================== -->
 
-<form action=<%="/surveys/#{@survey.id}/questions/#{@question.id}/edit"%> method="get">
-  <button type="submit">Edit</button>
-</form>
-<p>
-<a href=<%="/surveys/#{@survey.id}"%>>Back to Survey</a>
+
+<div class="jumbotron">
+  <h3>Survey Title: <%= "#{@survey.title}" %></h3>
+  <h4>Question Content: <%= "#{@question.content}"%></h4>
+
+  <form action=<%="/surveys/#{@survey.id}/questions/#{@question.id}"%> method="post">
+    <input type="hidden" name="_method" value="delete"></input>
+    <button type="submit"> Delete Question </button>
+  </form>
+
+  <form action=<%="/surveys/#{@survey.id}/questions/#{@question.id}/edit"%> method="get">
+    <button type="submit">Edit Question</button>
+  </form>
+  <br>
+  <br>
+  <a href=<%="/surveys/#{@survey.id}"%>>Back to Survey</a>
+</div>
 
 <h3>Choices</h3>
 <ol>
