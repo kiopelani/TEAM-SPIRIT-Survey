@@ -1,0 +1,18 @@
+<h3><%= "#{@survey.title}" %></h3>
+<h4>Question: <%= "#{@question.content}"%></h4>
+
+<form action=<%="/surveys/#{@survey.id}/questions/#{@question.id}"%> method="post">
+  <input type="hidden" name="_method" value="delete"></input>
+  <button type="submit"> Delete</button>
+</form>
+
+<form action=<%="/surveys/#{@survey.id}/questions/#{@question.id}/edit"%> method="get">
+  <button type="submit">Edit</button>
+</form>
+<p>
+<a href=<%="/surveys/#{@survey.id}"%>>Back to Survey</a>
+
+
+
+
+

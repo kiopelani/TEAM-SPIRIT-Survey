@@ -1,3 +1,7 @@
+get '/' do
+  redirect '/surveys'
+end
+
 get '/surveys' do
   @surveys=Survey.all
   erb :'/surveys/index'
@@ -35,3 +39,14 @@ put '/surveys/:id' do
   survey.update_attributes(params[:survey])
   redirect "/surveys/#{params[:id]}"
 end
+
+
+
+
+
+
+
+
+
+
+
