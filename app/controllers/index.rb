@@ -39,3 +39,19 @@ put '/surveys/:id' do
   survey.update_attributes(params[:survey])
   redirect "/surveys/#{params[:id]}"
 end
+
+post '/surveys/:id/questions/new' do
+    survey=Survey.find(params[:id])
+    survey.questions << Question.create(:content => params[:content])
+    redirect "/surveys/#{params[:id]}"
+end
+
+
+
+
+
+
+
+
+
+
