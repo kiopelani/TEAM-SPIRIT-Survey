@@ -32,6 +32,6 @@ end
 
 put '/surveys/:id' do
   survey=Survey.find(params[:id])
-  survey.update_attributes(params[:id])
+  survey.update_attributes(params[:survey])
   redirect "/surveys/#{params[:id]}"
 end
