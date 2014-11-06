@@ -1,7 +1,7 @@
 <h1> Here is your Survey Title </h1>
 <h1><%= @survey.title %></h1>
 
-<form action="/surveys/<%= survey.id %>" method="post">
+<form action="/surveys/<%= @survey.id %>" method="post">
   <input type="hidden" name="_method" value="delete"></input>
   <button type="submit"> Delete</button>
 </form>

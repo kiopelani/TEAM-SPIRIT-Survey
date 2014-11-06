@@ -1,5 +1,5 @@
 get '/surveys' do
-  # @surveys=Survey.all
+  @surveys=Survey.all
   erb :'/surveys/index'
 end
 
@@ -10,12 +10,12 @@ end
 
 
 post '/surveys/new' do
-  # Survey.create(params)
+  Survey.create(params)
   redirect '/surveys'
 end
 
 delete '/surveys/:id' do
-  # Survey.destroy(params[:id])
+  Survey.delete(params[:id])
   redirect '/surveys'
 end
 
