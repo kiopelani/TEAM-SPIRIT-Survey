@@ -19,12 +19,19 @@ delete '/surveys/:id' do
   redirect '/surveys'
 end
 
+get '/surveys/:id/edit' do
+  @survey=Survey.find(params[:id])
+  erb :'/surveys/edit'
+end
+
 get '/surveys/:id' do
   @survey=Survey.find(params[:id])
   erb :'/surveys/show'
 end
 
-get 'surveys/:id/edit' do
-  @survey=Survey.find(params[:id])
-  erb :'/surveys/edit'
+
+put '/surveys/:id' do
+  survey=Survey.find(params[:id])
+  survey.update_attributes(params[:id])
+  redirect "/surveys/#{params[:id]}"
 end
