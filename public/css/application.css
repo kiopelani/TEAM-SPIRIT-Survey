@@ -18,10 +18,6 @@
   background-clip: text;
 }*/
 
-.body {
-  background-color: black;
-}
-
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
@@ -62,9 +58,16 @@
   color: lightseagreen;
 }
 
-button, input {
+
+#sign_up_submit{
   background-color: lightseagreen;
+  color: white;
 }
+
+input, .sign_up {
+  color: black;
+}
+
 
 .navbar-header h1{
   color:yellow;
