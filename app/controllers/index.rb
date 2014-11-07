@@ -47,6 +47,7 @@ get '/surveys/:id/form' do
   @user = User.find(session[:user_id])
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
+  @author = @survey.user
   erb :'surveys/survey_form'
 end
 
@@ -69,10 +70,6 @@ get '/surveys/:id/results' do
   @questions.uniq!
 
   erb :'surveys/survey_results'
-  #from @results, get all objects with given question id
-  #@results.where(:question_id)s
-  #pull all info related to survey from choice_users
-  # "Results for survey #{params[:id]} will eventually be here!"
 end
 
 
