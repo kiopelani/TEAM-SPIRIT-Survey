@@ -40,11 +40,11 @@
   </form>
 
   <h2>Below are the questions on your Survey:</h2>
-  <ul>
+  <ol>
     <% @survey.questions.each do |quest|%>
     <li><a href=<%="/surveys/#{@survey.id}/questions/#{quest.id}"%>><%= "#{quest.content}"%></a></li>
     <%end %>
-  </ul>
+  </ol>
 <br>
 <br>
 <h2> Why Don't you add a new question?</h2>
