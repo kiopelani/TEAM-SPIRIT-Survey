@@ -8,7 +8,6 @@ get '/surveys' do
 end
 
 get '/surveys/new' do
-
   erb :'/surveys/new'
 end
 
@@ -40,7 +39,16 @@ put '/surveys/:id' do
   redirect "/surveys/#{params[:id]}"
 end
 
+get '/surveys/:id/form' do
+  @user = User.find(session[:user_id])
+  @survey = Survey.find(params[:id])
+  @questions = @survey.questions
+  erb :'surveys/survey_form'
+end
 
+post '/surveys/:id/form/submit' do
+  "#{params} AND USER #{session[:user_id]}"
+end
 
 
 
