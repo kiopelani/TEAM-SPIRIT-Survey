@@ -4,6 +4,7 @@ class CreateChoiceUsers < ActiveRecord::Migration
       t.integer :choice_id
       t.integer :user_id
       t.integer :survey_id
+      t.integer :question_id
 
       t.timestamps
     end
