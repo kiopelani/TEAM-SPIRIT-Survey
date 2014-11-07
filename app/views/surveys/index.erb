@@ -21,7 +21,7 @@
   <div id="all_surveys">
     <ol>
       <% @surveys.each do |survey| %>
-        <a href="/surveys/<%= survey.id %>"><li><%= survey.title %></li></a>
+        <a href="/surveys/<%= survey.id %>/form"><li><%= survey.title %></li></a>
       <%end %>
     </ol>
   </div>
