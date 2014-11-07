@@ -2,24 +2,35 @@
 <!-- Content Section
     ================================================== -->
 
-
-      <% if current_user %>
-        <h2> List of all Surveys</h2>
-      <ol>
-        <% @surveys.each do |survey| %>
+<% if current_user %>
+<h1> List your Surveys</h1>
+  <div id="user_surveys">
+    <ol>
+      <% @surveys.each do |survey| %>
+        <% if session[:user_id] == survey.user_id%>
           <a href="/surveys/<%= survey.id %>"><li><%= survey.title %></li></a>
         <%end %>
-      </ol>
-      <br>
-      <br>
-      <br>
-        <p><a href="/surveys/new"> Create a New Survey </a></p>
-      <a href="/logout">Logout</a>
-
-      <% else %>
-      <h1> Why don't you join us</h1>
-        <a href="/users/new">Create New User</a>
       <%end%>
+    </ol>
+  <p id="create_survey"><a href="/surveys/new"> Create a New Survey </a></p>
+  </div>
+<%end%>
+
+<% if current_user %>
+  <h1> List of all Surveys</h1>
+  <div id="all_surveys">
+    <ol>
+      <% @surveys.each do |survey| %>
+        <a href="/surveys/<%= survey.id %>"><li><%= survey.title %></li></a>
+      <%end %>
+    </ol>
+  </div>
+<% else %>
+  <h1> Why don't you join us</h1>
+    <a href="/users/new">Create New User</a>
+<%end%>
+
+
 
 
 
