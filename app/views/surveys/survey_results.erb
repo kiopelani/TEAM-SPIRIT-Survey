@@ -1,0 +1,12 @@
+<h3><%="#{@survey.title} Results"%></h3>
+
+<ol>
+<% @questions.each do |question| %>
+  <li><strong><%= question.content %></strong></li>
+  <ul>
+    <% question.choices.each do |choice| %>
+      <li><%= "#{choice.choice_content} - #{choice.choice_users.count} votes" %></li>
+    <% end %>
+  </ul>
+<% end %>
+</ol>

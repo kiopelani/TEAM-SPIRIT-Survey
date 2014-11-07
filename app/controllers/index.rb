@@ -46,14 +46,28 @@ get '/surveys/:id/form' do
 end
 
 post '/surveys/:id/form/submit' do
-  "#{params} AND USER #{session[:user_id]}"
-  # create new choice_user
-  # redirect to '/'
-end
+  results = []
+  params[:results].each do |question, choice|
+    ChoiceUser.create(:user_id => session[:user_id], :choice_id => choice, :survey_id => params[:id], :question_id => question)
+  end
+  redirect to '/'
+  end
+
 
 get '/surveys/:id/results' do
+  @survey = Survey.find(params[:id])
+  @choice_users = ChoiceUser.where(:survey_id => params[:id])
+  @questions = []
+  @choice_users.each do |choice|
+    @questions << choice.question
+  end
+  @questions.uniq!
+
+  erb :'surveys/survey_results'
+  #from @results, get all objects with given question id
+  #@results.where(:question_id)s
   #pull all info related to survey from choice_users
-  "Results for survey #{params[:id]} will eventually be here!"
+  # "Results for survey #{params[:id]} will eventually be here!"
 end
 
 
