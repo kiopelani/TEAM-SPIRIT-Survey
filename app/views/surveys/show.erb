@@ -15,7 +15,7 @@
   </form>
 
   <h2>Below are the questions on your Survey:</h2>
-  <ol>
+  <ol id='question_list'>
     <% @survey.questions.each do |quest|%>
     <li><a href=<%="/surveys/#{@survey.id}/questions/#{quest.id}"%>><%= "#{quest.content}"%></a></li>
     <%end %>
@@ -23,7 +23,7 @@
 <br>
 <br>
 <h2> Why Don't you add a new question?</h2>
-<form action=<%="/surveys/#{@survey.id}/questions/new"%> method="post">
+<form id='submit_new' action=<%="/surveys/#{@survey.id}/questions/new"%> method="post">
   <input type="text" name="content" placeholder="new question"></input>
   <input type="submit" value="submit"/>
 </form>
