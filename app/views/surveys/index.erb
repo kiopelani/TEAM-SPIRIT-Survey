@@ -4,7 +4,7 @@
 
 <% if current_user %>
 <h1> List your Surveys</h1>
-  <div id="user_surveys">
+  <div class="survey_cont">
     <ol>
       <% @surveys.each do |survey| %>
         <% if session[:user_id] == survey.user_id%>
@@ -18,7 +18,7 @@
 
 <% if current_user %>
   <h1> List of all Surveys</h1>
-  <div id="all_surveys">
+  <div class="survey_cont">
     <ol>
       <% @surveys.each do |survey| %>
         <a href="/surveys/<%= survey.id %>/form"><li><%= survey.title %></li></a>
@@ -26,8 +26,8 @@
     </ol>
   </div>
 <% else %>
-  <h1> Why don't you join us</h1>
-    <a href="/users/new">Create New User</a>
+  <h1> Create surveys and see their results</h1>
+    <a href="/users/new">Start today</a>
 <%end%>
 
 

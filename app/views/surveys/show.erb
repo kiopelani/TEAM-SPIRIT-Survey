@@ -3,29 +3,40 @@
  <!-- Content Section
     ================================================== -->
 
-  <h1> Here is your Survey Title: </h1>
-  <h1><%= @survey.title %></h1>
-  <a href=<%="/surveys/#{@survey.id}/form"%>>Generate Survey</a>
-  <br>
-  <a href=<%="/surveys/#{@survey.id}/results"%>>View Current Survey Results</a>
-
-  <form action="/surveys/<%= @survey.id %>" method="post">
-    <input type="hidden" name="_method" value="delete"></input>
-    <button type="submit"> Delete Your Survey</button>
-  </form>
-
-  <h2>Below are the questions on your Survey:</h2>
+  <h1> Survey Title: <%= @survey.title %></h1>
+<a href="/surveys/<%= @survey.id %>/edit"> Edit survey title</a>
+  <h2>Survey questions:</h2>
   <ol>
     <% @survey.questions.each do |quest|%>
     <li><a href=<%="/surveys/#{@survey.id}/questions/#{quest.id}"%>><%= "#{quest.content}"%></a></li>
     <%end %>
   </ol>
-<br>
-<br>
-<h2> Why Don't you add a new question?</h2>
+
+
+
+<h2> Add survey question</h2>
 <form action=<%="/surveys/#{@survey.id}/questions/new"%> method="post">
   <input type="text" name="content" placeholder="new question"></input>
-  <input type="submit" value="submit"/>
+  <button class="btn btn-success" type="submit">Submit</button>
 </form>
 
-<a href="/surveys/<%= @survey.id %>/edit"> Feel free to Edit your Survey </a>
+
+
+
+ <button type="button" class="btn btn-success"><a href=<%="/surveys/#{@survey.id}/results"%>>Survey Results</a></button>
+
+
+
+
+  <button type="button" class="btn btn-success"><a href=<%="/surveys/#{@survey.id}/form"%>>Go to survey</a></button>
+
+
+
+  <form action="/surveys/<%= @survey.id %>" method="post">
+    <input type="hidden" name="_method" value="delete"></input>
+    <button class="btn btn-success" type="submit"> Delete Your Survey</button>
+  </form>
+
+
+
+
