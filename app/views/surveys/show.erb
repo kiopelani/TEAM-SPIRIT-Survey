@@ -34,6 +34,8 @@
   <h1> Here is your Survey Title: </h1>
   <h1><%= @survey.title %></h1>
   <a href=<%="/surveys/#{@survey.id}/form"%>>Generate Survey</a>
+  <br>
+  <a href=<%="/surveys/#{@survey.id}/results"%>>View Current Survey Results</a>
 
   <form action="/surveys/<%= @survey.id %>" method="post">
     <input type="hidden" name="_method" value="delete"></input>
