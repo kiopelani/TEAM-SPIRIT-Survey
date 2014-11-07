@@ -3,8 +3,6 @@
     ================================================== -->
 
       <% if current_user %>
-        <h1>Welcome <%=current_user.name %> </h1>
-        <h1><span class="rainbow">Welcome to Spirit Survey!!!</span></h1>
         <h2> List of all Surveys</h2>
       <ol>
         <% @surveys.each do |survey| %>
