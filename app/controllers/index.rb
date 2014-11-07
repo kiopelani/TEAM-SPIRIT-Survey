@@ -48,6 +48,13 @@ end
 
 post '/surveys/:id/form/submit' do
   "#{params} AND USER #{session[:user_id]}"
+  # create new choice_user
+  # redirect to '/'
+end
+
+get '/surveys/:id/results' do
+  #pull all info related to survey from choice_users
+  "Results for survey #{params[:id]} will eventually be here!"
 end
 
 
