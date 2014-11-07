@@ -6,8 +6,12 @@ end
 
 post '/surveys/:id/questions/new' do
     survey=Survey.find(params[:id])
-    survey.questions << Question.create(:content => params[:content])
-    redirect "/surveys/#{params[:id]}"
+    question = Question.create(:content => params[:content])
+    survey.questions << question
+    "<li><a href='/surveys/#{survey.id}/questions/#{question.id}'>#{question.content}</a></li>"
+    # content_type :json
+    # {content: params[:content]}.to_json
+    # redirect "/surveys/#{params[:id]}"
 end
 
 delete '/surveys/:survey_id/questions/:question_id' do
