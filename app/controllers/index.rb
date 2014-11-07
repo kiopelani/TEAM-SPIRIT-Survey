@@ -12,9 +12,14 @@ get '/surveys/new' do
 end
 
 post '/surveys/new' do
-  Survey.create(params)
+  @survey = Survey.create(params)
+  @survey.user_id = session[:user_id]
+  @survey.save
   redirect '/surveys'
 end
+
+
+
 
 delete '/surveys/:id' do
   Survey.delete(params[:id])

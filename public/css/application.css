@@ -48,6 +48,7 @@
   color:transparent;
   -webkit-background-clip: text;
   background-clip: text;
+  font-size: 25px;
 }
 .btn-success {
   color: #fff;
@@ -68,3 +69,27 @@ button, input {
 .navbar-header h1{
   color:yellow;
 }
+
+
+#all_surveys{
+  display: block;
+  width: 100%;
+  padding-left: 20%;
+  padding-right: 20%;
+  height: auto;
+}
+
+#user_surveys{
+  display: block;
+  width: 100%;
+  padding-left: 20%;
+  padding-right: 20%;
+  height: auto;
+}
+
+#create_survey{
+background-color: white;
+}
+
+
+
