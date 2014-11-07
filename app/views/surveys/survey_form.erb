@@ -1,0 +1,16 @@
+<h2><%="Survey: #{@survey.title}"%></h2>
+<h4><%="By #{@user.name}"%></h4>
+
+<br>
+
+<% question_number = 1 %>
+<form action=<%="/surveys/#{@survey.id}/form/submit"%> method="post">
+<% @questions.each do |question| %>
+  <strong><%= "#{question_number}.#{question.content}" %></strong><br>
+    <% question.choices.each do |choice| %>
+      <input type="radio" name=<%="question#{question_number}"%> value=<%="#{choice.id}"%>><%="#{choice.choice_content}"%><br>
+    <% end %>
+  <br> <% question_number += 1%>
+<% end %>
+<input type="submit" value="Submit">
+</form>
