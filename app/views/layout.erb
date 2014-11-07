@@ -1,40 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
-<!--
-  <link rel="stylesheet" href="/css/normalize.css"> -->
-  <!--
-    application.css is where you put your styles
-  -->
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
+<title>Spirit Survey</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+<!-- Optional theme -->
+<link rel="stylesheet" href="/css/application.css">
 
-     <meta charset="utf-8">
-    <meta name="description" content="Your description goes here">
-    <meta name="keywords" content="one, two, three">
+<title>Spirit Survey</title>
 
-    <title>Blank Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-
-    <!-- Fonts -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
-
-
-  <link rel="stylesheet" href="/css/application.css">
-
-  <title>Spirit Survey</title>
 </head>
+
 <body>
-  <%= yield %>
+<!-- Navigation Bar
+    ================================================== -->
+
+
+
+
+
+
+
+  <% if current_user %>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/surveys"> <span class="rainbow">Spirit Survey</span></a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+
+          <form class="navbar-form navbar-right" role="form" action="/logout" method="get">
+
+            <button type="submit" class="btn btn-success">Logout</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+   <% else %>
+
+
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/surveys"> <span class="rainbow">Spirit Survey</span></a>
+        </div>
+        <!--/.navbar-collapse -->
+        <div id="navbar" class="navbar-collapse collapse">
+          <!--/.navbar-collapse -->
+          <form class="navbar-form navbar-right" role="form" action="/login" method="post">
+            <div class="form-group">
+              <input type="text" placeholder="email" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="password" name="password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+<%end%>
+
+
+
+
+
+
+
+
+<div class="jumbotron">
+<%= yield %>
+</div>
+
+<div class="footer">
+      <div class="container">
+        <p class="text-muted"><span class="rainbow"> Game brought to you by Team Spirit</span></p>
+      </div>
+</div>
+
 </body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="/js/application.js"></script>
 </html>
