@@ -15,6 +15,23 @@ $(document).ready(function() {
       console.log(serverData);
       $('#question_list').append(serverData)
     })
+  }),
+
+  $('#choice_new').on("submit", function(e){
+    e.preventDefault()
+
+    formData = $(this).serialize()
+    $.ajax({
+      url: this.action,
+      type: this.method,
+      data: formData
+    }).done(function(serverData){
+      console.log("GREAT SUCCESS!!!")
+      console.log(serverData);
+      $('#choice_list').append(serverData)
+    })
   })
+
+
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 });

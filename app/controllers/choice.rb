@@ -1,8 +1,8 @@
 post '/surveys/:survey_id/questions/:question_id/choices/new' do
   question=Question.find(params[:question_id])
-    question.choices << Choice.create(:choice_content => params[:choice_content])
-    "Yay!"
-    redirect "/surveys/#{params[:survey_id]}/questions/#{params[:question_id]}"
+    choice = Choice.create(:choice_content => params[:choice_content])
+    question.choices << choice
+    "<a href='/surveys/#{params[:survery_id]}/questions/#{question.id}/choices/#{choice.id}'><li>#{choice.choice_content}</li></a>"
 end
 
 get '/surveys/:survey_id/questions/:question_id/choices/:choice_id' do
