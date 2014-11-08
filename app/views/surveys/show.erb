@@ -3,10 +3,13 @@
  <!-- Content Section
     ================================================== -->
 
+
   <h1> Survey Title: <%= @survey.title %></h1>
-<a href="/surveys/<%= @survey.id %>/edit"> Edit survey title</a>
-  <h2>Survey questions:</h2>
-  <ol>
+
+
+ <h2>Survey Questions:</h2>
+  <ol id='question_list'>
+
     <% @survey.questions.each do |quest|%>
     <li><a href=<%="/surveys/#{@survey.id}/questions/#{quest.id}"%>><%= "#{quest.content}"%></a></li>
     <%end %>
@@ -14,8 +17,20 @@
 
 
 
+
+<a href="/surveys/<%= @survey.id %>/edit"> Edit survey title</a>
+
+
+
+  <form action="/surveys/<%= @survey.id %>" method="post">
+    <input type="hidden" name="_method" value="delete"></input>
+    <button type="submit"> Delete Your Survey</button>
+  </form>
+
+
+
 <h2> Add survey question</h2>
-<form action=<%="/surveys/#{@survey.id}/questions/new"%> method="post">
+<form id='submit_new' action=<%="/surveys/#{@survey.id}/questions/new"%> method="post">
   <input type="text" name="content" placeholder="new question"></input>
   <button class="btn btn-success" type="submit">Submit</button>
 </form>
