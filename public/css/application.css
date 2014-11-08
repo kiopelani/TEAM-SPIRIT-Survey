@@ -80,8 +80,8 @@ input, .sign_up {
 .survey_cont{
   display: block;
   width: 100%;
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-left: 30%;
+  padding-right: 30%;
   height: auto;
 }
 
@@ -101,6 +101,14 @@ color: black;
 .header_title{
   color: white;
 }
+
+.btn-survey{
+  width: 130px;
+  height: 40px;
+  color: white;
+}
+
+
 
 
 /*#survey_details{
